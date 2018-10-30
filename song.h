@@ -22,7 +22,7 @@ private:
 public:
     //constructors
     Song();
-    Song(string name);
+    Song(string _name);
     Song(string _name, string _artist);
     Song(string _name, string _artist, int _size);
 
