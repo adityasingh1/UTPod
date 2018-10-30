@@ -16,7 +16,7 @@ Song::Song()
 
 Song::Song(string _name)
 {
-    this->name = _name;
+    name = _name;
     artist = "";
     size = DEFAULT_SIZE;
 }
@@ -57,3 +57,54 @@ void Song::setSize(int n) {
     name = n;
 }
 
+//destructor:
+
+void Song::~Song(Song &s){
+    //free &s;
+
+}
+
+
+//overloads (==, >, <)
+bool Song::operator ==(Song const &rhs){
+    bool result = (name == rhs.name &&
+                   artist == rhs.artist &&
+                  size == rhs.size);
+    return result;
+}
+
+//  >  :returns  1 if LHS>RHS w/ priority order artist, then name, then size.
+//      returns  0 if LHS<RHS
+//      returns -1 if LHS==RHS
+bool Song::operator >(Song const &rhs)
+{
+    if(artist != rhs.artist){
+        return artist > rhs.artist;
+    }
+    if(name != rhs.name){
+        return name > rhs.name;
+    }
+    if(size != rhs.size){
+        return size > size;
+    }else{
+        return -1; //error: song == rhs
+    }
+}
+
+//  <  :returns  1 if LHS<RHS w/ priority order artist, then name, then size.
+//      returns  0 if LHS>RHS
+//      returns -1 if LHS==RHS
+bool Song::operator <(Song const &rhs)
+{
+    if(artist != rhs.artist){
+        return artist < rhs.artist;
+    }
+    if(name != rhs.name){
+        return name < rhs.name;
+    }
+    if(size != rhs.size){
+        return size < size;
+    }else{
+        return -1; //error: song == rhs
+    }
+}

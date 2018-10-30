@@ -37,8 +37,14 @@ public:
 
     //destructor
     ~Song(Song &s);
+
+    //overloads
+    bool operator ==(Song const &rhs);
+    bool operator >(Song const &rhs);
+    bool operator <(Song const &rhs);
 };
 
 
 
 #endif SONG_H
+
