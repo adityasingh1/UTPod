@@ -14,9 +14,9 @@ Song::Song()
     size = DEFAULT_SIZE;
 }
 
-Song::Song(string name)
+Song::Song(string _name)
 {
-    this->name = name;
+    this->name = _name;
     artist = "";
     size = DEFAULT_SIZE;
 }
