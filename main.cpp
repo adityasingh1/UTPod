@@ -63,39 +63,47 @@ int main(int argc, char *argv[]) {
     cout << "memory left = " << t.getTotalMemory() << endl;
 
 
+
+
     char answer;
-    cout << "Want to remove a song?";
+    cout << "Want to remove a song?" << endl;
     cin >> answer;
 
     while (answer == 'Y') {
 
         string songnameT;
 
-        cout << "What's the song called? ";
+        cout << "What's the song called? " << endl;
 
         getline(cin, songnameT);
 
         string artistT;
 
-        cout << "Who's the artist? ";
+        cout << "Who's the artist? " << endl;
 
         getline(cin, artistT);
 
         int sizeT;
 
-        cout << "What's the size of the song? ";
+        cout << "What's the size of the song? " << endl;
 
         cin >> sizeT;
 
         Song temp(songnameT, artistT, sizeT);
 
-        t.removeSong(temp);
+        result = t.removeSong(temp);
+        if(result){
+            cout << "Success" << endl;
+
+        } else{
+            cout << "Failure" << endl;
+        }
 
         t.showSongList();
 
         cout << "memory left = " << t.getRemainingMemory() << endl;
 
-        cout << "Want to remove another song?";
+        cout << "Want to remove another song?" << endl ;
         cin >> answer;
     }
 
@@ -106,6 +114,43 @@ int main(int argc, char *argv[]) {
     t.sortSongList();
 
     t.showSongList();
+
+    char answer2;
+    cout << "Would you like to add a song?" << endl;
+    cin >> answer2;
+
+    while (answer2 == 'Y') {
+
+        string songnameT;
+
+        cout << "What's the song called? " << endl;
+
+        getline(cin, songnameT);
+
+        string artistT;
+
+        cout << "Who's the artist? " << endl;
+
+        getline(cin, artistT);
+
+        int sizeT;
+
+        cout << "What's the size of the song? " << endl;
+
+        cin >> sizeT;
+
+        Song temp(songnameT, artistT, sizeT);
+
+        t.addSong(temp);
+
+        t.showSongList();
+
+        cout << "memory left = " << t.getRemainingMemory() << endl;
+
+        cout << "Would you like to add another song?" << endl;
+        cin >> answer2;
+    }
+
 
 }
 
