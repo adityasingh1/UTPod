@@ -15,7 +15,7 @@ private:
 
     int memory;
     *Node head;
-    static const int DEFAULT_MEMORY = 0;
+    static const int DEFAULT_MEMORY = 512;
 
     void swap(*Node Node1, *Node Node2);
 
