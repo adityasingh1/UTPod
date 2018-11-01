@@ -19,10 +19,6 @@ using namespace std;
 
 
 
-
-
-
-
 int main(int argc, char *argv[]) {
     ifstream inFile;
     string filename;
@@ -32,7 +28,7 @@ int main(int argc, char *argv[]) {
     char answer;
     char result;
     if (!inFile) {
-        cerr << "Can't open input file " << inputFilename << endl;
+        cerr << "Can't open input file " << inFile << endl;
         exit(1);
     }
 
@@ -184,9 +180,10 @@ while (answer == 'Y') {
     cout << "Would you like to add another song?" << endl;
     cin >> answer;
 }
+}
 */
 
-}
+
 
 /*
 

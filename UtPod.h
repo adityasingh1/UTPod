@@ -6,6 +6,14 @@
 #define UTPOD_UTPOD_H
 
 #include <string>
+#include "song.h"
+#include "song.cpp"
+
+typedef struct Node {
+    Song s;
+    struct Node *next;
+} Node;
+
 
 using namespace std;
 
@@ -14,10 +22,10 @@ class UtPod {
 private:
 
     int memory;
-    *Node head;
+    Node* head;
     static const int DEFAULT_MEMORY = 512;
 
-    void swap(*Node Node1, *Node Node2);
+    void swap(Node *Node1, Node *Node2);
 
 public:
 
@@ -25,7 +33,7 @@ public:
 
     UtPod();
 
-    UtPod(int _memory);
+    explicit UtPod(int _memory);
 
     // methods
 

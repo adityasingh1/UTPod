@@ -102,7 +102,7 @@ bool Song::operator <(Song const &rhs)
         return name < rhs.name;
     }
     if(size != rhs.size){
-        return size < size;
+        return size < rhs.size;
     }else{
         return -1; //error: song == rhs
     }
