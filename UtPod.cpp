@@ -108,14 +108,22 @@ void UtPod::showSongList() const{
 
 void UtPod::sortSongList()   //this needs to be changed to not fuck up head
 {
-    while (head->next != nullptr)
-    {
-        if (head->s > head->next->s)
+    int swapDone = 1;
+    while(swapDone){
+        swapDone = 0;
+        Node *p = head;
+        while (p->next != nullptr)
         {
-            swap(head, head->next);
+            if (p->s > p->next->s)
+            {
+                swap(head, head->next);
+                swapDone = 1;
+            }
+            p = p->next;
         }
-        head = head->next;
+
     }
+
 }
 
 
