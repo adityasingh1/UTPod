@@ -2,17 +2,19 @@
 
 #include "UtPod.h"
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 // constructors
 
 
 UtPod::UtPod(){
-    head = nullptr;
+    head = NULL;
     memory = DEFAULT_MEMORY;
 }
 
 UtPod::UtPod(int _memory){
-    head = nullptr;
+    head = NULL;
     memory = _memory;
 }
 
@@ -20,6 +22,7 @@ UtPod::UtPod(int _memory){
 
 void UtPod::swap(Node *Node1, Node *Node2) {
     Node *temp;
+    temp = new Node;
     temp->s = Node1->s;         //copy Node1 into temp
     Node1->s = Node2->s;        //copy Node2 into Node1
     Node2->s = temp->s;         //copy temp into Node2
@@ -47,7 +50,7 @@ bool UtPod::removeSong(Song s1){
     Node *current = head;
 
 
-    if(current == nullptr){          //this is the case that there are no nodes in the list, returns error
+    if(current == NULL){          //this is the case that there are no nodes in the list, returns error
         return false;
     }
 
@@ -62,7 +65,7 @@ bool UtPod::removeSong(Song s1){
 
 
 
-    while (current != nullptr && current->next != nullptr && current->next->next != nullptr) {
+    while (current != NULL && current->next != NULL && current->next->next != NULL) {
         current = current -> next; //this is the case that it is not the top node
         if (current->s == s1) {
             temp = current->next;
@@ -73,19 +76,19 @@ bool UtPod::removeSong(Song s1){
         }
     }
 
-    if(current->next == nullptr) {
+    if(current->next == NULL) {
         if (current->s == s1) {
-            current = nullptr;
+            current = NULL;
             return true;
         }
     }
 
-    if(current->next->next == nullptr){
+    if(current->next->next == NULL){
         if(current->s == s1)
         {
             temp = current->next;
             current->s = temp->s;
-            current->next = nullptr;
+            current->next = NULL;
             delete (temp);
             return true;
 
@@ -118,18 +121,18 @@ void UtPod::shuffle(){
     Node* ctrptr = head;
     int numSongs = 0;
 
-    while(ctrptr != nullptr){             //count the number of nodes in the list -- should we implement as a function?
+    while(ctrptr != NULL){             //count the number of nodes in the list -- should we implement as a function?
         numSongs++;
         ctrptr = ctrptr->next;
     }
 
-    while(ptr1 != nullptr){
+    while(ptr1 != NULL){
         ptr2 = ptr1;
         ptr3 = ptr1;
         int random = (rand() % numSongs);   //select a random index to swap to
         cout << endl;
         for(int i = 0; i < random; i++){
-            if(ptr2->next != nullptr) {     //traverse through the list random number of times, rolling over if you hit null
+            if(ptr2->next != NULL) {     //traverse through the list random number of times, rolling over if you hit null
                 ptr2 = ptr2->next;
             }else{
                 ptr2=head;
@@ -148,7 +151,7 @@ void UtPod::shuffle(){
 void UtPod::showSongList() const{
     Node *p = head;
 
-    while (p != nullptr)
+    while (p != NULL)
     {
         cout << p->s.getName() << " by " << p->s.getArtist() << endl;
         p = p->next;
@@ -162,7 +165,7 @@ void UtPod::sortSongList()
     while(swapDone){
         swapDone = 0;
         Node *p = head;
-        while (p->next != nullptr)
+        while (p->next != NULL)
         {
             //cout << "Outside if" << endl;
             if (p->s > p->next->s)
@@ -191,7 +194,7 @@ int UtPod::getRemainingMemory() const {
     int memoryTaken = 0;
     Node *p = head;
 
-    while (p != nullptr) {
+    while (p != NULL) {
         memoryTaken = memoryTaken + p->s.getSize();
         p = p->next;
     }
@@ -209,7 +212,7 @@ int UtPod::getRemainingMemory() const {
 
 UtPod::~UtPod(){
     Node* temp;
-    while (head != nullptr)
+    while (head != NULL)
     {
         temp = head;
         head = head->next;
