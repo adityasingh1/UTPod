@@ -82,8 +82,14 @@ void UtPod::shuffle(){
         ptr2 = ptr1;
         int ind = (rand() % numSongs);
         for(int i = 0; i < ind; i++){
-            ptr2 = ptr2->next;
+            if(ptr2->next != nullptr) {
+                ptr2 = ptr2->next;
+            }else{
+                ptr2=head;
+            }
         }
+        swap(ptr1, ptr2);
+        ptr1 = ptr1 -> next;
 
     }
 
