@@ -36,9 +36,9 @@ public:
 
     // methods
 
-    bool addSong(Song s);
+    bool addSong(Song s1);
 
-    bool removeSong(Song s);
+    bool removeSong(Song s1);
 
     void shuffle();
 

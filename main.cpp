@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
         result = t.addSong(s);
         cout << "Memory left after adding song = " << t.getRemainingMemory() << endl;
     }
+    inFile.close();
 
     cout << "All Songs Added, Showing Song List:" << endl;
 
@@ -55,6 +56,7 @@ int main(int argc, char *argv[]) {
     cout << "Press y to Test Shuffling" << endl;
 
     cin >> answer;
+    cout << endl;
 
     if (answer == 'y') {
         t.shuffle();
@@ -69,6 +71,7 @@ int main(int argc, char *argv[]) {
     cin >> answer;
 
     if (answer == 'y') {
+        cout << endl;
         t.sortSongList();
     }
 
@@ -81,15 +84,21 @@ int main(int argc, char *argv[]) {
     cout << "Press y to Remove Songs" << endl;
 
     cin >> answer;
+    cout << endl;
 
     if (answer == 'y') {
+        filename = argv[1];
         inFile.open(filename, ios::in);
+        cout << "reached while loop" << endl;
         while (!inFile.eof()) {
+            cout << "inside loop" << endl;
             inFile >> artist;
-            inFile>> songname;
+            inFile >> songname;
             inFile >> size;
-            Song s(artist, songname, size);
+            cout << "entered vars" << endl;
+            Song s(songname, artist, size);
             result = t.removeSong(s);
+            cout << "removed" << endl;
             t.showSongList();
             cout << "Memory left after removing song = " << t.getRemainingMemory() << endl;
         }
