@@ -60,10 +60,19 @@ void UtPod::showSongList() const{
 
 }
 
-void UtPod::sortSongList(){
-
-
+void UtPod::sortSongList()
+{
+    while (head->next != NULL)
+    {
+        if (head->s > head->next->s)
+        {
+            swap(head, head->next);
+        }
+        head = head->next;
+    }
 }
+
+
 
 int UtPod::getTotalMemory() const{
 
