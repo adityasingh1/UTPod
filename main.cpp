@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     char answer;
     char result;
     if (!inFile) {
-        cerr << "Can't open input file " << inFile << endl;
+        cerr << "Can't open input file " << endl;
         exit(1);
     }
 
