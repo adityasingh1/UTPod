@@ -35,11 +35,13 @@ bool UtPod::addSong(Song s){   //needs to calculate and return result
 
     Node *temp;
     temp = new Node;
+    if(s.getSize() > getRemainingMemory()){
+        return 0;
+    }
     temp->s = s;
     temp->next = head;
     head = temp;
-
-
+    return 1;
 }
 
 bool UtPod::removeSong(Song s){
