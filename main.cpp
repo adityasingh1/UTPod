@@ -23,7 +23,6 @@ int main(int argc, char *argv[]) {
     ifstream inFile;
     string filename;
     filename = argv[1];
-    cout << "Hello" << endl;
     int totalSize = atoi(argv[2]);
     inFile.open(filename, ios::in);
     char answer;
@@ -79,7 +78,7 @@ int main(int argc, char *argv[]) {
 
     t.showSongList();
 
-    cout << "memory left = " << t.getTotalMemory() << endl;
+    cout << "memory left = " << t.getRemainingMemory() << endl;
 
     cout << "Press y to Remove Songs" << endl;
 
@@ -89,13 +88,10 @@ int main(int argc, char *argv[]) {
     if (answer == 'y') {
         filename = argv[1];
         inFile.open(filename, ios::in);
-        cout << "reached while loop" << endl;
         while (!inFile.eof()) {
-            cout << "inside loop" << endl;
             inFile >> artist;
             inFile >> songname;
             inFile >> size;
-            cout << "entered vars" << endl;
             Song s(songname, artist, size);
             result = t.removeSong(s);
             cout << "removed" << endl;

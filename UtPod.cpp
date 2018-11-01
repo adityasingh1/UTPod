@@ -41,29 +41,64 @@ bool UtPod::addSong(Song s1){   //needs to calculate and return result
 }
 
 bool UtPod::removeSong(Song s1){
-    Node *temp;
+
+
+    Node* temp;
     Node *current = head;
 
 
-    if(head == nullptr){          //this is the case that there are no nodes in the list, returns error
+    if(current == nullptr){          //this is the case that there are no nodes in the list, returns error
         return false;
     }
 
-    cout << "if1" << endl;
-    if(head->s == s1){             //this is the case that the top node is the one we want to remove
+
+    if(current->s == s1){
+        //this is the case that the top node is the one we want to remove
         temp = head;
         head = head->next;
-        delete temp;
+        delete (temp);
+        return true;
     }
-    cout << "if2" << endl;
-    while (current != nullptr && current->next != nullptr) {        //this is the case that it is not the top node
-        if(current->s == s1){
+
+
+
+    while (current != nullptr && current->next != nullptr && current->next->next != nullptr) {
+        current = current -> next; //this is the case that it is not the top node
+        if (current->s == s1) {
             temp = current->next;
             current->s = temp->s;
             current->next = temp->next;
+            delete (temp);
+            return true;
+        }
+    }
+
+    if(current->next == nullptr) {
+        if (current->s == s1) {
+            current = nullptr;
+            return true;
+        }
+    }
+
+    if(current->next->next == nullptr){
+        if(current->s == s1)
+        {
+            temp = current->next;
+            current->s = temp->s;
+            current->next = nullptr;
+            delete (temp);
+            return true;
+
+        }
 
 
-        }else{//delete the last or second to last node}
+    }
+
+    return(false);
+
+
+    //delete the last or second to last node}
+
 
 
         /*if(p->next->s == s){
@@ -71,9 +106,7 @@ bool UtPod::removeSong(Song s1){
             head = p->next->next;
             delete temp;
         }*/
-        p = p->next;
-    }
-    return true;
+        //p = p->next;
 }
 
 void UtPod::shuffle(){
@@ -89,13 +122,12 @@ void UtPod::shuffle(){
         numSongs++;
         ctrptr = ctrptr->next;
     }
-    cout << "numSongs=" << numSongs << endl;
 
     while(ptr1 != nullptr){
         ptr2 = ptr1;
         ptr3 = ptr1;
         int random = (rand() % numSongs);   //select a random index to swap to
-        cout << random << endl;
+        cout << endl;
         for(int i = 0; i < random; i++){
             if(ptr2->next != nullptr) {     //traverse through the list random number of times, rolling over if you hit null
                 ptr2 = ptr2->next;
@@ -104,13 +136,14 @@ void UtPod::shuffle(){
             }
 
         }
-        cout << "Swapping songs:" << ptr3->s.getName() << "and" << ptr2->s.getName() << endl;
         swap(ptr3, ptr2);                  //swap current position to current position + random
         ptr1 = ptr1 -> next;               //move ptr1 to next 'unshuffled' element (it may have already been shuffled and placed there)
 
     }
 
 }
+
+
 
 void UtPod::showSongList() const{
     Node *p = head;
