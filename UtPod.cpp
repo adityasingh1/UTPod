@@ -4,7 +4,6 @@
 
 #include "UtPod.h"
 #include <iostream>
-#include "song.h"
 
 // constructors
 
@@ -43,18 +42,27 @@ bool UtPod::addSong(Song s){   //needs to calculate and return result
 
 }
 
-bool UtPod::removeSong(Song s){   //needs to calculate and return result, needs to traverse list
+bool UtPod::removeSong(Song s){
     Node *temp;
     Node *p = head;
-    while (p != nullptr) {
-        if(p->s == s){
-            temp = p;
-            head = p->next;
+
+    if(head == nullptr){
+        return 0;
+    }
+    if(head->s == s){             //this is the case that the top node is the one we want to remove
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+    while (p != nullptr) {        //this is the case that it is not th etop node
+        if(p->next->s == s){
+            temp = p->next;
+            head = p->next->next;
             delete temp;
         }
         p = p->next;
     }
-
+    return 1;
 }
 
 void UtPod::shuffle(){

@@ -6,7 +6,6 @@
 #define UTPOD_UTPOD_H
 
 #include <string>
-#include "song.h"
 #include "song.cpp"
 
 typedef struct Node {
