@@ -52,11 +52,11 @@ int main(int argc, char *argv[]) {
 
     t.showSongList();
 
-    cout << "Press Space to Test Shuffling" << endl;
+    cout << "Press y to Test Shuffling" << endl;
 
     cin >> answer;
 
-    if (answer == ' ') {
+    if (answer == 'y') {
         t.shuffle();
     }
 
@@ -64,11 +64,11 @@ int main(int argc, char *argv[]) {
 
     t.showSongList();
 
-    cout << "Press Space to Test Sorting" << endl;
+    cout << "Press y to Test Sorting" << endl;
 
     cin >> answer;
 
-    if (answer == ' ') {
+    if (answer == 'y') {
         t.sortSongList();
     }
 
@@ -78,11 +78,11 @@ int main(int argc, char *argv[]) {
 
     cout << "memory left = " << t.getTotalMemory() << endl;
 
-    cout << "Press Space to Remove Songs" << endl;
+    cout << "Press y to Remove Songs" << endl;
 
     cin >> answer;
 
-    if (answer == ' ') {
+    if (answer == 'y') {
         inFile.open(filename, ios::in);
         while (!inFile.eof()) {
             inFile >> artist;

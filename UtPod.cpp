@@ -26,6 +26,7 @@ void UtPod::swap(Node *Node1, Node *Node2) {
     Node1->next = Node2->next;
     Node2->s = temp->s;         //copy temp into Node2
     Node2->next = temp->next;
+    cout << "helloSwap" << endl;
 
 }
 
@@ -77,10 +78,12 @@ void UtPod::shuffle(){
         numSongs++;
         ctrptr = ctrptr->next;
     }
+    cout << numSongs << endl;
 
     while(ptr1 != nullptr){
         ptr2 = ptr1;
         int random = (rand() % numSongs);   //select a random index to swap to
+        cout << random << endl;
         for(int i = 0; i < random; i++){
             if(ptr2->next != nullptr) {     //traverse through the list random number of times, rolling over if you hit null
                 ptr2 = ptr2->next;
@@ -88,6 +91,7 @@ void UtPod::shuffle(){
                 ptr2=head;
             }
         }
+        cout << "helloShuffle" << endl;
         swap(ptr1, ptr2);                  //swap current position to current position + random
         ptr1 = ptr1 -> next;               //move ptr1 to next 'unshuffled' element (it may have already been shuffled and placed there)
 
