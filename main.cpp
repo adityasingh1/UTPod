@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         inFile >> songname;
         inFile >> size;
         cout << songname << ' ' << artist << ' ' << size << ' ' << endl;
-        Song s(artist, songname, size);
+        Song s(songname, artist, size);
         result = t.addSong(s);
         cout << "Memory left after adding song = " << t.getRemainingMemory() << endl;
     }

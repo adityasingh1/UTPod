@@ -36,9 +36,7 @@ bool UtPod::addSong(Song s1){   //needs to calculate and return result
     if(s1.getSize() > getRemainingMemory()){
         return false;
     }
-    temp->s.setName(s1.getName());
-    temp->s.setSize(s1.getSize());
-    temp->s.setArtist(s1.getArtist());
+    temp->s = s1;
     temp->next = head;
     head = temp;
     return true;
