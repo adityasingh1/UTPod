@@ -68,7 +68,23 @@ bool UtPod::removeSong(Song s){
 void UtPod::shuffle(){
     unsigned int currentTime =  (unsigned)time(0);
     srand(currentTime);
-    while(){
+    Node* ptr1 = head;
+    Node* ptr2;
+    Node* ctrptr = head;
+    int numSongs = 0;
+
+    while(ctrptr != nullptr){
+        numSongs++;
+        ctrptr = ctrptr->next;
+    }
+
+    while(ptr1 != nullptr){
+        ptr2 = ptr1;
+        int ind = (rand() % numSongs);
+        for(int i = 0; i < ind; i++){
+            ptr2 = ptr2->next;
+        }
+
     }
 
 }
@@ -84,7 +100,7 @@ void UtPod::showSongList() const{
 
 }
 
-void UtPod::sortSongList()
+void UtPod::sortSongList()   //this needs to be changed to not fuck up head
 {
     while (head->next != nullptr)
     {
