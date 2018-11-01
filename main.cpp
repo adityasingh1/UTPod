@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
     ifstream inFile;
     string filename;
     filename = argv[1];
+    cout << "Hello" << endl;
     int totalSize = atoi(argv[2]);
     inFile.open(filename, ios::in);
     char answer;
@@ -38,7 +39,10 @@ int main(int argc, char *argv[]) {
     string artist, songname;
     int size;
     while (!inFile.eof()) {
-        inFile >> artist >> songname >> size;
+        inFile >> artist;
+        inFile >> songname;
+        inFile >> size;
+        cout << songname << ' ' << artist << ' ' << size << ' ' << endl;
         Song s(artist, songname, size);
         result = t.addSong(s);
         cout << "Memory left after adding song = " << t.getRemainingMemory() << endl;
@@ -79,8 +83,11 @@ int main(int argc, char *argv[]) {
     cin >> answer;
 
     if (answer == ' ') {
+        inFile.open(filename, ios::in);
         while (!inFile.eof()) {
-            inFile >> artist >> songname >> size;
+            inFile >> artist;
+            inFile>> songname;
+            inFile >> size;
             Song s(artist, songname, size);
             result = t.removeSong(s);
             t.showSongList();

@@ -1,12 +1,12 @@
-Beatles Hey Jude1 4
-Beatles Hey Jude2 5
-Beatles Hey Jude3 6
-Beatles Hey Jude4 7
-Beatles Hey Jude5 241
-Dido White Flag 32
-Canes Extra Toast 12
-Prince Purple Rain 42
-Skeleton Monster Mash 31
+Beatles HeyJude1 4
+Beatles HeyJude2 5
+Beatles HeyJude3 6
+Beatles HeyJude4 7
+Beatles HeyJude5 241
+Dido WhiteFlag 32
+Canes ExtraToast 12
+Prince PurpleRain 42
+Skeleton MonsterMash 31
 Skeleton Ghoultober 31
 Skeleton Screams 31
-Skeleton I Miss You 9
+Skeleton IMissYou 9

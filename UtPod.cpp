@@ -29,14 +29,16 @@ void UtPod::swap(Node *Node1, Node *Node2) {
 
 }
 
-bool UtPod::addSong(Song s){   //needs to calculate and return result
+bool UtPod::addSong(Song s1){   //needs to calculate and return result
 
     Node *temp;
     temp = new Node;
-    if(s.getSize() > getRemainingMemory()){
+    if(s1.getSize() > getRemainingMemory()){
         return false;
     }
-    temp->s = s;
+    temp->s.setName(s1.getName());
+    temp->s.setSize(s1.getSize());
+    temp->s.setArtist(s1.getArtist());
     temp->next = head;
     head = temp;
     return true;
@@ -100,7 +102,7 @@ void UtPod::showSongList() const{
 
     while (p != nullptr)
     {
-        cout << p->s.getName() << "by" << p->s.getArtist() << endl;
+        cout << p->s.getName() << " by " << p->s.getArtist() << endl;
         p = p->next;
     }
 
