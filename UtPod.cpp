@@ -19,6 +19,8 @@ UtPod::UtPod(int _memory){
 
 // methods
 
+// I am not sure if I am accessing the song data correctly, please check my use of cout with that and the memory part of s.size or whatever
+
 bool UtPod::addSong(Song s){
     struct Node {
         Song s;
