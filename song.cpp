@@ -59,10 +59,9 @@ void Song::setSize(int n) {
 
 //destructor:
 
-void Song::~Song(Song &s){
-    //free &s;
+/*void Song::~Song(){
 
-}
+}*/
 
 
 //overloads (==, >, <)
@@ -85,7 +84,7 @@ bool Song::operator >(Song const &rhs)
         return name > rhs.name;
     }
     if(size != rhs.size){
-        return size > size;
+        return size > rhs.size;
     }else{
         return -1; //error: song == rhs
     }

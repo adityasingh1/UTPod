@@ -35,9 +35,6 @@ public:
     int getSize() const;
     void setSize(int n);
 
-    //destructor
-    ~Song(Song &s);
-
     //overloads
     bool operator ==(Song const &rhs);
     bool operator >(Song const &rhs);
@@ -46,5 +43,4 @@ public:
 
 
 
-#endif SONG_H
-
+#endif
