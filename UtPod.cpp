@@ -33,8 +33,14 @@ bool UtPod::addSong(Song s){
 }
 
 bool UtPod::removeSong(Song s){
-
-
+    *Node temp;
+    while (head != NULL) {
+        if(head->s = s){
+            temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
 
 }
 
@@ -44,7 +50,11 @@ void UtPod::shuffle(){
 }
 
 void UtPod::showSongList() const{
-
+    while (head != NULL)
+    {
+        cout << head->s << endl;
+        head = head->next;
+    }
 
 }
 
