@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     string filename;
     filename = argv[1];
     int totalSize = atoi(argv[2]);
-    inFile.open(filename, ios::in);
+    inFile.open(filename.c_str(), ios::in);
     char answer;
     char result;
     if (!inFile) {
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 
     if (answer == 'y') {
         filename = argv[1];
-        inFile.open(filename, ios::in);
+        inFile.open(filename.c_str(), ios::in);
         while (!inFile.eof()) {
             inFile >> artist;
             inFile >> songname;
