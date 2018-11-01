@@ -48,7 +48,7 @@ bool UtPod::removeSong(Song s){
     Node *temp;
     Node *p = head;
 
-    if(head == nullptr){          //this is the case that there are no nodes in the list, returns error
+    if(head == nullptr){
         return false;
     }
     if(head->s == s){             //this is the case that the top node is the one we want to remove
@@ -56,7 +56,7 @@ bool UtPod::removeSong(Song s){
         head = head->next;
         delete temp;
     }
-    while (p != nullptr) {        //this is the case that it is not the top node
+    while (p != nullptr) {        //this is the case that it is not th etop node
         if(p->next->s == s){
             temp = p->next;
             head = p->next->next;
@@ -75,34 +75,34 @@ void UtPod::shuffle(){
     Node* ctrptr = head;
     int numSongs = 0;
 
-    while(ctrptr != nullptr){             //count the number of nodes in the list -- should we implement as a function?
+    while(ctrptr != nullptr){
         numSongs++;
         ctrptr = ctrptr->next;
     }
 
     while(ptr1 != nullptr){
         ptr2 = ptr1;
-        int random = (rand() % numSongs);   //select a random index to swap to
-        for(int i = 0; i < random; i++){
-            if(ptr2->next != nullptr) {     //traverse through the list random number of times, rolling over if you hit null
+        int ind = (rand() % numSongs);
+        for(int i = 0; i < ind; i++){
+            if(ptr2->next != nullptr) {
                 ptr2 = ptr2->next;
             }else{
                 ptr2=head;
             }
         }
-        swap(ptr1, ptr2);                  //swap current position to current position + random
-        ptr1 = ptr1 -> next;               //move ptr1 to next 'unshuffled' element (it may have already been shuffled and placed there)
+        swap(ptr1, ptr2);
+        ptr1 = ptr1 -> next;
 
     }
 
 }
 
 void UtPod::showSongList() const{
-    Node *p = head;
+    Node *p;
 
     while (p != nullptr)
     {
-        cout << p->s.getName() << "by" << p->s.getArtist() << endl;
+        cout << head->s.getName() << "by" << head->s.getArtist() << endl;
         p = p->next;
     }
 
