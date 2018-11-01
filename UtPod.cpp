@@ -36,12 +36,12 @@ bool UtPod::addSong(Song s){   //needs to calculate and return result
     Node *temp;
     temp = new Node;
     if(s.getSize() > getRemainingMemory()){
-        return 0;
+        return false;
     }
     temp->s = s;
     temp->next = head;
     head = temp;
-    return 1;
+    return true;
 }
 
 bool UtPod::removeSong(Song s){
@@ -49,7 +49,7 @@ bool UtPod::removeSong(Song s){
     Node *p = head;
 
     if(head == nullptr){
-        return 0;
+        return false;
     }
     if(head->s == s){             //this is the case that the top node is the one we want to remove
         temp = head;
@@ -64,7 +64,7 @@ bool UtPod::removeSong(Song s){
         }
         p = p->next;
     }
-    return 1;
+    return true;
 }
 
 void UtPod::shuffle(){
