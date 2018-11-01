@@ -65,12 +65,22 @@ void UtPod::sortSongList(){
 
 int UtPod::getTotalMemory() const{
 
+    return(memory);
 
 }
 
-int UtPod::getRemainingMemory() const{
-
-
+int UtPod::getRemainingMemory() const {
+    int memoryTaken = 0;
+    while (head != NULL) {
+        memoryTaken = memoryTaken + head->s.size;
+        head = head->next;
+    }
+    int memoryLeft = memory - memoryTaken;
+    if (memoryLeft < 0) {
+        return (0);
+    } else {
+        return (memoryLeft);
+    }
 
 }
 
@@ -78,6 +88,12 @@ int UtPod::getRemainingMemory() const{
 
 *void UtPod::~UtPod(){
 
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
 
 }
 
