@@ -20,6 +20,8 @@ UtPod::UtPod(int _memory){
 
 // methods
 
+
+
 void UtPod::swap(Node *Node1, Node *Node2) {
     Node *temp;
     temp = new Node;
@@ -147,15 +149,25 @@ void UtPod::shuffle(){
 }
 
 
+void reverse(Node* p)
+{
+    if (p == NULL)
+        return;
+//recursive implementation
+
+    reverse(p->next);
+
+    // After everything else is printed, print head
+    cout << p->s.getName() << " by " << p->s.getArtist() << endl;
+
+
+}
+
 
 void UtPod::showSongList() const{
     Node *p = head;
 
-    while (p != NULL)
-    {
-        cout << p->s.getName() << " by " << p->s.getArtist() << endl;
-        p = p->next;
-    }
+    reverse(p);
 
 }
 
